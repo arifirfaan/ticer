@@ -55,7 +55,7 @@ class _DashboardPageState extends State<DashboardPage> {
               const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Welcome', style: TextStyle(color: Color(0xFF9D9D9D)),),
+                  Text('Welcome Back', style: TextStyle(fontSize: 16,color: Color(0xFF9D9D9D)),),
                   Text('Muhammad', style: TextStyle(fontSize: 32, fontWeight: FontWeight.w600),), // Dynamic Name
                 ],
               ),
@@ -69,6 +69,7 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
             ],
           ),
+          const SizedBox(height: 20,),
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8 ),
@@ -102,7 +103,7 @@ class _DashboardPageState extends State<DashboardPage> {
             ),
             child:listAddedWidget
           ),
-          const SizedBox(height: 8,),
+          const SizedBox(height: 10),
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
@@ -111,23 +112,31 @@ class _DashboardPageState extends State<DashboardPage> {
             ),
             child:listAddedWidget
           ),
+          const SizedBox(height: 30,),
           Container(
+            padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
             decoration: BoxDecoration(
               border: Border.all(color: Colors.black38,width: 2),
               borderRadius: BorderRadius.circular(12)
             ),
             child: Row(
               children:[
-                //SvgPicture.asset('svg/dashboard_vector.svg'),
-                const Column(children: [
-                  Text(
-                    "Reports", style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600)
-                  ),
-                  Text(
-                    "You can view expenses reports in categories",
-                    style: TextStyle(fontSize: 12 ,fontWeight: FontWeight.w400)
-                  )
-                ],)
+                SvgPicture.asset('assets/svg/dashboard_vector.svg'),
+                Container(
+                  padding: EdgeInsets.only(left: 10),
+                  width: 150,
+                  child: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                    Text(
+                      "Reports", style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600)
+                    ),
+                    Text(
+                      "You can view expenses reports in categories",
+                      style: TextStyle(fontSize: 12 ,fontWeight: FontWeight.w400)
+                    )
+                  ],),
+                )
               ]
             )
           )
