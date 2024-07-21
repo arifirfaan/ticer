@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ticer/dashboard_page.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -10,41 +11,49 @@ class SplashScreen extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
+      color: Colors.white,
       child: Column(
         children: [
           Expanded(
-           // The ratio of available space for this child
+            // The ratio of available space for this child
             child: SvgPicture.asset('assets/svg/splash_logo.svg'),
           ),
-
           Container(
-            padding: EdgeInsets.all(10),
-            width: MediaQuery.of(context).size.width,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(color: Colors.black),
-                  borderRadius: BorderRadius.circular(8.0), // Set your desired radius
-                ),
-              ),
-              onPressed: (){}, child: Text('Continue with Google',style: TextStyle(color: Colors.black),))
-          ),
-
+              padding: EdgeInsets.all(10),
+              width: MediaQuery.of(context).size.width,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(color: Colors.black),
+                      borderRadius:
+                          BorderRadius.circular(8.0), // Set your desired radius
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context)
+                        .pushReplacement(MaterialPageRoute(builder: (context) {
+                      return DashboardPage();
+                    }));
+                  },
+                  child: Text(
+                    'Continue with Google',
+                    style: TextStyle(color: Colors.black),
+                  ))),
           Container(
-            padding: EdgeInsets.all(10),
-            width: MediaQuery.of(context).size.width,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(color: Colors.black),
-                  borderRadius: BorderRadius.circular(8.0), // Set your desired radius
-                ),
-              ),
-              onPressed: (){}, child: Text('Continue with Email')
-            )
-          )
+              padding: EdgeInsets.all(10),
+              width: MediaQuery.of(context).size.width,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(color: Colors.black),
+                      borderRadius:
+                          BorderRadius.circular(8.0), // Set your desired radius
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: Text('Continue with Email')))
         ],
       ),
     );
