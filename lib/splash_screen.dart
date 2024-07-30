@@ -11,6 +11,7 @@ class SplashScreen extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
+      padding: EdgeInsets.only(bottom: 40, top: 20),
       color: Colors.white,
       child: Column(
         children: [
@@ -19,13 +20,13 @@ class SplashScreen extends StatelessWidget {
             child: SvgPicture.asset('assets/svg/splash_logo.svg'),
           ),
           Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.black),
+                      side: const BorderSide(color: Colors.black),
                       borderRadius:
                           BorderRadius.circular(8.0), // Set your desired radius
                     ),
@@ -33,27 +34,64 @@ class SplashScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context)
                         .pushReplacement(MaterialPageRoute(builder: (context) {
-                      return DashboardPage();
+                      return const DashboardPage();
                     }));
                   },
-                  child: Text(
-                    'Continue with Google',
-                    style: TextStyle(color: Colors.black),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset('assets/svg/google_icon.svg'),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Text(
+                          'Continue with Google',
+                          style: TextStyle(color: Colors.black, fontSize: 14),
+                        ),
+                      ],
+                    ),
                   ))),
           Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.black),
+                      side: const BorderSide(color: Colors.black),
                       borderRadius:
                           BorderRadius.circular(8.0), // Set your desired radius
                     ),
                   ),
                   onPressed: () {},
-                  child: Text('Continue with Email')))
+                  child: const Padding(
+                    padding: EdgeInsets.all(12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.mail_outline, color: Colors.black),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          'Continue with Email',
+                          style: TextStyle(color: Colors.black, fontSize: 14),
+                        ),
+                      ],
+                    ),
+                  ))),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "By continuing, you acknowledge that understand and agree to the Terms and Conditions and Privacy Policy.",
+              style: TextStyle(
+                fontSize: 10,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          )
         ],
       ),
     );

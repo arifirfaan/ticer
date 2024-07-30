@@ -36,8 +36,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     DashboardPage(), // Your existing content
-    Center(child: Text('Do\'a Page')), // Example Placeholder widget for the second tab
-    Center(child: Text('Profile Page')), // Example Placeholder widget for the third tab
+    Center(
+        child: Text(
+            'Do\'a Page')), // Example Placeholder widget for the second tab
+    Center(
+        child: Text(
+            'Profile Page')), // Example Placeholder widget for the third tab
   ];
 
   void _onItemTapped(int index) {
@@ -48,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SplashScreen();
+    return Scaffold(body: SplashScreen());
     // Scaffold(
     //   // appBar: AppBar(
     //   //   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -60,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
     //       height: MediaQuery.of(context).size.height,
     //       child: _widgetOptions.elementAt(_selectedIndex)),
     //   ),
-      
+
     //   //floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     //   bottomNavigationBar: BottomAppBar(
     //     shape: CircularNotchedRectangle(),
@@ -81,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
     //           label: 'Profile',
     //         ),
     //       ],
-    //       currentIndex: _selectedIndex, 
+    //       currentIndex: _selectedIndex,
     //       selectedItemColor: Colors.blue[900],
     //       onTap: _onItemTapped,
     //     ),
