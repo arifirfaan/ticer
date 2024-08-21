@@ -13,6 +13,12 @@ class ReceiptPage extends StatefulWidget {
 
 class _ReceiptPageState extends State<ReceiptPage> {
   var receiptList = [];
+  bool addbool = false;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,51 +33,30 @@ class _ReceiptPageState extends State<ReceiptPage> {
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'Receipt',
                         style: TextStyle(
                             fontSize: 32, fontWeight: FontWeight.w600),
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (context) {
-                            return AddreceiptPage();
-                          }));
-                          // showCupertinoDialog(
-                          //   context: context,
-                          //   builder: (BuildContext context) =>
-                          //       CupertinoAlertDialog(
-                          //     title: Text('Add New Receipt'),
-                          //     content:
-                          //         Text('The feature is not ready yet Firdaus.'),
-                          //     actions: <Widget>[
-                          //       CupertinoDialogAction(
-                          //         child: Text('Yes'),
-                          //         onPressed: () {
-                          //           Navigator.of(context)
-                          //               .pop(); // Close the dialog
-                          //         },
-                          //       ),
-                          //       CupertinoDialogAction(
-                          //         child: Text('No'),
-                          //         onPressed: () {
-                          //           Navigator.of(context)
-                          //               .pop(); // Close the dialog
-                          //         },
-                          //       ),
-                          //     ],
-                          //   ),
-                          // );
+                          setState(() {
+                            addbool = !addbool;
+                          });
                         },
-                        child: Container(
-                          width: 30,
-                          height: 30,
-                          child: Center(child: Icon(Icons.add)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Container(
+                              width: 30,
+                              height: 30,
+                              child: const Center(child: Icon(Icons.add)),
+                            ),
+                          ],
                         ),
                       ),
                     ]),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Container(
@@ -79,7 +64,7 @@ class _ReceiptPageState extends State<ReceiptPage> {
                     borderRadius: BorderRadius.circular(10.0),
                     color: Colors.grey[200], // Background color
                   ),
-                  child: TextField(
+                  child: const TextField(
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.symmetric(
                               horizontal: 16.0, vertical: 12),
@@ -91,7 +76,7 @@ class _ReceiptPageState extends State<ReceiptPage> {
                 ),
                 Expanded(
                     child: receiptList.isEmpty
-                        ? Center(
+                        ? const Center(
                             child: SizedBox(
                               width: 270,
                               child: Column(
@@ -112,11 +97,60 @@ class _ReceiptPageState extends State<ReceiptPage> {
                               ),
                             ),
                           )
-                        : Text("Got receipt"))
+                        : const Text("Got receipt"))
               ],
             ),
           ),
-          BottomNav()
+          addbool == true
+              ? Positioned(
+                  right: 20,
+                  top: 55,
+                  child: Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        color: Color(0xFFEEEEEE),
+                        border: Border.all(color: Colors.black12),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(builder: (context) {
+                              return AddreceiptPage();
+                            }));
+                          },
+                          child: const Text(
+                            "Take Picture",
+                            style: TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                        Container(
+                          height: 1, // Spacing before and after the divider
+                          width: 130, // Thickness of the line
+                          color: Colors.black12, // Color of the line
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(builder: (context) {
+                              return AddreceiptPage();
+                            }));
+                          },
+                          child: const Text(
+                            "Upload from Gallery",
+                            style: TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.w500),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                )
+              : SizedBox(),
+          const BottomNav(iconFlag: 2)
         ],
       ),
     );

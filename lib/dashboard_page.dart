@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ticer/components/bottom_bar.dart';
-import 'package:ticer/profile_page.dart';
+import 'package:ticer/Profile/profile_page.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -150,7 +150,7 @@ class _DashboardPageState extends State<DashboardPage> {
               ],
             ),
           ),
-          BottomNav(),
+          BottomNav(iconFlag: 1),
         ],
       ),
     );

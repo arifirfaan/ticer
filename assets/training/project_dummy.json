@@ -1,0 +1,37 @@
+[
+  {
+    "project_id": "001",
+    "projectname": "Project Alpha",
+    "status": "In Progress",
+    "assignee": "John Doe",
+    "date": "2024-08-01"
+  },
+  {
+    "project_id": "002",
+    "projectname": "Project Beta",
+    "status": "Completed",
+    "assignee": "Jane Smith",
+    "date": "2024-07-15"
+  },
+  {
+    "project_id": "003",
+    "projectname": "Project Gamma",
+    "status": "Not Started",
+    "assignee": "Alice Johnson",
+    "date": "2024-08-10"
+  },
+  {
+    "project_id": "004",
+    "projectname": "Project Delta",
+    "status": "In Progress",
+    "assignee": "Bob Brown",
+    "date": "2024-08-05"
+  },
+  {
+    "project_id": "005",
+    "projectname": "Project Epsilon",
+    "status": "On Hold",
+    "assignee": "Charlie Davis",
+    "date": "2024-08-12"
+  }
+]
