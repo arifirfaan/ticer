@@ -3,6 +3,7 @@ import 'package:ticer/addreceipt_page.dart';
 import 'package:ticer/components/bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
+import 'package:ticer/training/camera_page.dart';
 
 class ReceiptPage extends StatefulWidget {
   const ReceiptPage({super.key});
@@ -136,7 +137,7 @@ class _ReceiptPageState extends State<ReceiptPage> {
                           onTap: () {
                             Navigator.of(context)
                                 .push(MaterialPageRoute(builder: (context) {
-                              return AddreceiptPage();
+                              return CameraPage();
                             }));
                           },
                           child: const Text(
